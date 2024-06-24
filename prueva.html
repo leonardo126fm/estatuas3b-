@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<title>Prueva </title>
+</head>
+<style>
+
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    text-align: center;
+}
+
+.cart-items {
+    list-style: none;
+    padding: 0;
+}
+
+.cart-items li {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-items button {
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+}
+
+</style>
+<body>
+
+
+  <div class="container mt-5">
+    <h1 class="text-center">Carrito de Compras</h1>
+    <div class="product-list row">
+        <!-- Generar 140 productos dinámicamente -->
+        <script>
+            for (let i = 1; i <= 140; i++) {
+                document.write(`
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+
+
+
+
+
+</div>
+
+<h2>Carrito</h2>
+<ul class="list-group cart-items"></ul>
+<p class="mt-3">Total: $<span class="cart-total">0.00</span></p>
+</div>
+
+
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cart = [];
+    const cartItemsContainer = document.querySelector('.cart-items');
+    const cartTotalElement = document.querySelector('.cart-total');
+
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', () => {
+            const productId = button.getAttribute('data-id');
+            const productName = button.getAttribute('data-name');
+            const productPrice = parseFloat(button.getAttribute('data-price'));
+
+            addToCart(productId, productName, productPrice);
+            updateCart();
+        });
+    });
+
+    function addToCart(id, name, price) {
+        for (let item of cart) {
+            if (item.id === id) {
+                item.quantity++;
+                return;
+            }
+        }
+        cart.push({ id, name, price, quantity: 1 });
+    }
+
+    function removeFromCart(id) {
+        for (let i = 0; i < cart.length; i++) {
+            if (cart[i].id === id) {
+                cart[i].quantity--;
+                if (cart[i].quantity === 0) {
+                    cart.splice(i, 1);
+                }
+                return;
+            }
+        }
+    }
+
+    function updateCart() {
+        cartItemsContainer.innerHTML = '';
+        let total = 0;
+        for (let item of cart) {
+            const listItem = document.createElement('li');
+            listItem.className = 'list-group-item';
+            listItem.innerHTML = `
+                ${item.name} - $${item.price.toFixed(2)} x ${item.quantity}
+                <button onclick="removeItem('${item.id}')">Eliminar</button>
+            `;
+            cartItemsContainer.appendChild(listItem);
+            total += item.price * item.quantity;
+        }
+        cartTotalElement.textContent = total.toFixed(2);
+    }
+    window.removeItem = function(id) {
+        removeFromCart(id);
+        updateCart();
+    }
+});
+
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+.z {
+    background-color: #ffd2a4e0;
+    border: 300;
+    padding: 15px 15px;
+    border-radius: 20px 20px 20px 0px;
+  }
+  .z1{
+    background-color: #ffd2a4e0;
+    border: 20;
+    padding: 40px 40px;
+    border-radius: 20px 20px 20px 0px;
+  }
+  .de1{
+
+    float: right;
+    
+  }
+  .derecha{
+text-align: right;
+  }
+  .c1{
+background-color: #e3b35b;
+}
+
+@keyframes brillo {
+0% { color: #f06; text-shadow: 0 0 10px #f06; }
+42% { color: #0f0; text-shadow: 0 0 10px #0f0; }
+57% { color: #0ff; text-shadow: 0 0 10px #0ff; }
+71% { color: #00f; text-shadow: 0 0 10px #00f; }
+85% { color: #90f; text-shadow: 0 0 10px #90f; }
+100% { color: #f06; text-shadow: 0 0 10px #f06; }
+}
+
+.texto-brillante {
+font-size: 2em;
+animation: brillo 3s infinite alternate;
+}
+ 
+.boton{
+    background-color: #00f;
+    border-bottom: #1df106e0;
+    border-radius: 20px 20px 20px 0px;
+}
+.boton-3{
+  background-color: #e3b35b;
+  border-color: #e3b35b;
+  margin: 0px;
+}
+
+.img1{
+  width: 100px;
+    margin: 20px;
+}
+.img2{
+  width: 115px;
+   margin: 20px;
+}
+.star {
+  color: black;
+  cursor: pointer;
+}
+.star.selected {
+  
+  margin: 3px;
+  color: rgb(255, 0, 0);
+}
+.balon {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  animation: rebote 1s infinite alternate, avance 4s linear infinite;
+}
+
+@keyframes rebote {
+  0% { top: 90%; }
+  50% { top: 10%; }
+  100% { top: 90%; }
+}
+
+@keyframes avance {
+  0% { left: 0; }
+  100% { left: 100%; }
+}
+
+.top {
+  background-color: white;
+  height: 50%;
+}
+.bottom {
+  background-color: black;
+  height: 50%;
+}
+.carita{
+  rotate:90deg;
+}
